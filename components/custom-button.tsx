@@ -1,21 +1,21 @@
 import { ActivityIndicator, StyleSheet, TouchableOpacity, TouchableOpacityProps } from "react-native";
 import { ThemedText } from "./themed-text";
-import { useThemeColor } from '@/hooks/use-theme-color';
 import { Colors } from "@/constants/theme";
 
 interface ButtonProps extends TouchableOpacityProps{
   text:string; 
   loading:boolean; 
+  textSize?: number;
 }
 
-export default function Button({text, loading, style, onPress}:ButtonProps){
+export default function Button({text, loading, style, onPress, textSize}:ButtonProps){
     return(
         <TouchableOpacity style={[styles.container, style]} onPress={onPress}>
             {
             loading ?
             <ActivityIndicator/>
             :
-            <ThemedText style={{color:'#FFF'}}>{text}</ThemedText>
+            <ThemedText type="defaultSemiBold" style={{color:'#FFF', fontSize:textSize || 16}}>{text}</ThemedText>
             }
         </TouchableOpacity>
     )

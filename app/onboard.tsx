@@ -29,7 +29,7 @@ export default function ModalScreen() {
     try {
       // await AsyncStorage.setItem("onboardingSeen", "true");
       // setIsLoading(false);
-      router.navigate("/(tabs)");
+      router.navigate("/Auth");
     } catch (e) {
       // setIsLoading(false);
       console.error(e);
