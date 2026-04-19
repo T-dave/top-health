@@ -27,7 +27,25 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     alignItems:'center',
     justifyContent:'center'
-  }
+  },
+  socials:{
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'space-between',
+    alignSelf:'center',
+    marginVertical:10,
+    width:"80%"
+  },
+  social:{
+    width:60,
+    height:60
+  },
+  topText: {
+    fontSize: 13,
+    marginBottom:25,
+    textAlign:'left',
+    lineHeight:15
+  },
 });
 
 export default styles;

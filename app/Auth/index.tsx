@@ -1,46 +1,90 @@
 import AuthContainer from "@/components/auth-container";
-import Button from "@/components/custom-button";
 import Input from "@/components/input";
-import { ThemedText } from "@/components/themed-text";
-import { Colors } from "@/constants/theme";
-import { TouchableOpacity, View } from "react-native";
 import styles from "./styles";
+import { Bottom1 } from "./bottom";
+import useInput from "@/hooks/use-input";
 
 export default function Register() {
+    const {
+        name,
+        setName,
+        nameError,
+        setNameError,
+        handleNameError,
+        password,
+        setPassword,
+        passwordError,
+        setPasswordError,
+        handlePasswordError,
+        email,
+        setEmail,
+        emailError,
+        setEmailError,
+        handleEmailError,
+        number,
+        setNumber,
+        numberError,
+        setNumberError,
+        handleNumberError,
+        date,
+        setDate,
+        dateError,
+        setDateError,
+        handleDateError
+    } = useInput();
   return (
     <AuthContainer title="New Account" style={styles.container}>
       <>
-        <Input label="Full Name" placeholder="John Doe..." />
-        <Input label="Password" placeholder="********" password />
-        <Input label="Email" placeholder="example@email.com" />
-        <Input label="Phone Number" placeholder="xxxx-xxx-xxxx" />
-        <Input label="Date of Birth" placeholder="DD/MM/YYYY" />
-      </>
-      <View style={styles.bottom}>
-        <ThemedText style={styles.bottomText}>
-          By continuing, you agree to
-          <ThemedText type="defaultSemiBold" style={[{ color: Colors.primary }, styles.bottomText]}>
-            {" "}
-            Terms of Use{" "}
-          </ThemedText>
-          and
-          <ThemedText type="defaultSemiBold" style={[{ color: Colors.primary }, styles.bottomText]}>
-            {" "}
-            Privacy Policy.
-          </ThemedText>
-        </ThemedText>
-        <Button
-          text={"Sign Up"}
-          loading={false}
-          style={styles.button}
-          textSize={20}
+        <Input
+        label="Full Name"
+        placeholder="John Doe..."
+        value={name}
+        setValue={setName}
+        error={nameError}
+        setError={setNameError}
+        handleError={handleNameError}
         />
-        <ThemedText style={styles.bottomText}>or sign up with</ThemedText>
-        <View style={styles.downText}>
-            <ThemedText style={styles.bottomText}>already have an account?</ThemedText>
-            <TouchableOpacity><ThemedText type="defaultSemiBold" style={[styles.bottomText, {color:Colors.primary}]}> Log in</ThemedText></TouchableOpacity>
-        </View>
-      </View>
+        <Input 
+        label="Password"
+        placeholder="*************"
+        password 
+        value={password}
+        setValue={setPassword}
+        error={passwordError}
+        setError={setPasswordError}
+        handleError={handlePasswordError}
+        />
+        <Input 
+        label="Email" 
+        placeholder="example@email.com" 
+        value={email}
+        setValue={setEmail}
+        error={emailError}
+        setError={setEmailError}
+        handleError={handleEmailError}
+        />
+        <Input 
+        label="Mobile Number" 
+        placeholder="xxxx-xxx-xxxx"
+        value={number}
+        setValue={setNumber}
+        error={numberError}
+        setError={setNumberError}
+        handleError={handleNumberError}
+        number
+         />
+        <Input
+        label="Date of Birth"
+        placeholder="DD/MM/YYYY"
+        value={date}
+        setValue={setDate}
+        error={dateError}
+        setError={setDateError}
+        handleError={handleDateError}
+        date
+        />
+      </>
+      <Bottom1/>
     </AuthContainer>
   );
 }

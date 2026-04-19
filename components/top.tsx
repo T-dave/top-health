@@ -11,7 +11,7 @@ export default function Top({title}:{title:string}){
             <TouchableOpacity style={styles.back} onPress={()=>router.back()}>
                 <MaterialIcons name="chevron-left" size={38} color={Colors.primary}/>
             </TouchableOpacity>
-            <ThemedText type="subtitle" style={{color:Colors.primary}}>{title}</ThemedText>
+            <ThemedText type="title" style={{color:Colors.primary, fontSize:25}}>{title}</ThemedText>
             <View/>
         </View>
     )
@@ -22,10 +22,10 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         justifyContent:'space-between',
+        paddingVertical:8
     },
     back:{
         position:'absolute',
-        padding:10,
-        paddingLeft:0
+        padding:8,
     }
 });
