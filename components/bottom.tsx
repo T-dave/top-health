@@ -3,9 +3,13 @@ import { ThemedText } from "@/components/themed-text";
 import { Colors } from "@/constants/theme";
 import { router } from "expo-router";
 import { Image, TouchableOpacity, View } from "react-native";
-import styles from "./styles";
+import styles from "../app/Auth/styles";
 
-export function Bottom1() {
+interface BottomProps {
+  submit: () => void;
+  loading: boolean;
+}
+export function Bottom1({ submit, loading }: BottomProps) {
   return (
     <View style={styles.bottom}>
       <ThemedText style={styles.bottomText}>
@@ -28,22 +32,23 @@ export function Bottom1() {
       </ThemedText>
       <Button
         text={"Sign Up"}
-        loading={false}
+        loading={loading}
         style={styles.button}
         textSize={20}
+        onPress={submit}
       />
       <ThemedText style={styles.bottomText}>or sign up with</ThemedText>
       <View style={styles.socials}>
         <Image
-          source={require("../../assets/images/google.png")}
+          source={require("../assets/images/google.png")}
           style={styles.social}
         />
         <Image
-          source={require("../../assets/images/facebook.png")}
+          source={require("../assets/images/facebook.png")}
           style={styles.social}
         />
         <Image
-          source={require("../../assets/images/finger-print.png")}
+          source={require("../assets/images/finger-print.png")}
           style={styles.social}
         />
       </View>
@@ -65,20 +70,21 @@ export function Bottom1() {
   );
 }
 
-export function Bottom2() {
+export function Bottom2({ submit, loading }: BottomProps) {
   return (
     <View style={styles.bottom}>
       <Button
         text={"Sign Up"}
-        loading={false}
+        loading={loading}
         style={styles.button}
         textSize={20}
+        onPress={submit}
       />
       <ThemedText style={styles.bottomText}>or</ThemedText>
-      <View style={{alignItems:'center', justifyContent:'center'}}>
+      <View style={{ alignItems: "center", justifyContent: "center" }}>
         <Image
-          source={require("../../assets/images/finger-print.png")}
-          style={[styles.social, {marginTop:10, marginBottom:30}]}
+          source={require("../assets/images/finger-print.png")}
+          style={[styles.social, { marginTop: 10, marginBottom: 30 }]}
         />
       </View>
       <View style={styles.downText}>

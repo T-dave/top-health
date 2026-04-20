@@ -1,11 +1,10 @@
 import AuthContainer from "@/components/auth-container";
 import Input from "@/components/input";
-import useInput from "@/hooks/use-input";
-import styles from "./styles";
-import { Bottom2 } from "./bottom";
-import { View } from "react-native";
 import { ThemedText } from "@/components/themed-text";
 import { Colors } from "@/constants/theme";
+import useInput from "@/hooks/use-input";
+import { Bottom2 } from "../../components/bottom";
+import styles from "./styles";
 
 export default function Register() {
   const {
@@ -19,11 +18,21 @@ export default function Register() {
     passwordError,
     setPasswordError,
     handlePasswordError,
+    handleLogIn,
+    loading,
   } = useInput();
   return (
-    <AuthContainer title="Hello!" style={[styles.container, {justifyContent:'center'}]}>
+    <AuthContainer
+      title="Hello!"
+      style={[styles.container, { justifyContent: "center" }]}
+    >
       <>
-        <ThemedText type="title" style={{color:Colors.primary, marginBottom:40}}>Welcome</ThemedText>
+        <ThemedText
+          type="title"
+          style={{ color: Colors.primary, marginBottom: 40 }}
+        >
+          Welcome
+        </ThemedText>
         <Input
           label="Email or Mobile Number"
           placeholder="example@gmail.com"
@@ -45,7 +54,7 @@ export default function Register() {
           forgot
         />
       </>
-      <Bottom2/>
+      <Bottom2 submit={handleLogIn} loading={loading} />
     </AuthContainer>
   );
 }

@@ -39,7 +39,7 @@ export default function Input({label, placeholder, password, error, value, setVa
     return(
         <View style={{marginBottom:16}}>
             <ThemedText type="defaultSemiBold" style={{fontSize:18}}>{label}</ThemedText>
-            <View style={[styles.inputView, {borderColor:error.length>0 ?"red":"transparent"}]}>
+            <View style={[styles.inputView, {borderColor:error.trim().length>0 ?"red":"transparent"}]}>
                 <TextInput 
                 style={styles.input} 
                 placeholder={placeholder} 
@@ -60,7 +60,7 @@ export default function Input({label, placeholder, password, error, value, setVa
                 }
             </View>
             {
-                error &&
+                error.trim() &&
                 <ThemedText style={styles.error}>{error}</ThemedText>
             }
             {
