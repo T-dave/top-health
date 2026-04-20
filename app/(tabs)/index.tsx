@@ -1,5 +1,5 @@
 import { Image } from 'expo-image';
-import { StyleSheet, TextInput, View } from 'react-native';
+import { ScrollView, StyleSheet, TextInput, View } from 'react-native';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
@@ -13,12 +13,14 @@ import TopDoctor from '@/components/top-doctor';
 export default function HomeScreen() {
   return (
     <ThemedView style={styles.container}>
-      <Top/>
-      <View>
-        <Categories/>
-      </View>
-      <Favorite/>
-      <TopDoctor/>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Top/>
+        <View>
+          <Categories/>
+        </View>
+        <Favorite/>
+        <TopDoctor/>
+      </ScrollView>
     </ThemedView>
   );
 }
